@@ -1,59 +1,53 @@
 import sqlite3
 
-# Connect to SQLite database
-con=sqlite3.connect("quizapp.db")
+# Connect to SQLite database and create the vocabulary table if it doesn't exist
+con = sqlite3.connect("quizapp.db")
+cursor = con.cursor()
 
-# Create a cursor
-cursor=con.cursor()
-
-# Create a vocabulary table if it does not exist
+# Correct table schema with `option` column included
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS vocabulary(
                id INTEGER PRIMARY KEY AUTOINCREMENT,
                word TEXT NOT NULL,
-               option TEXT, 
+               option TEXT,  -- Make sure this column name matches with the rest of the script
                answer TEXT NOT NULL
                )
 ''')
 
-# Commit changes and close the connection
-
-con.commit()
-con.close()
-
-
-# ```````` CRUD `````````````
-# insert new vocabulary
+# Insert a new vocabulary item
 def add_vocabulary(word, options, answer):
     con = sqlite3.connect('quizapp.db')
-    cursor=con.cursor()
+    cursor = con.cursor()
     cursor.execute('''
-    INSERT INTO vocabulary (word, options, answer) VALUES (? ? ?)   ''', (word, options, answer))
+    INSERT INTO vocabulary (word, option, answer) VALUES (?, ?, ?)
+    ''', (word, options, answer))
     con.commit()
     con.close()
 
-# retrieve vocabulary
+# Retrieve all vocabulary items
 def get_vocabulary():
     con = sqlite3.connect('quizapp.db')
     cursor = con.cursor()
-    cursor.execute('SELECT * from vocabulary')
+    cursor.execute('SELECT * FROM vocabulary')
     results = cursor.fetchall()
     con.close()
-    return results
+    return [{"id": item[0], "word": item[1], "option": item[2], "answer": item[3]} for item in results]
 
-# update vocabulary
+# Update a vocabulary item
 def update_vocabulary(vocab_id, word, options, answer):
     con = sqlite3.connect('quizapp.db')
     cursor = con.cursor()
     cursor.execute('''
-    UPDATE vocabulary SET word = ?, options = ?, answer = ? WHERE id = ?''',(word, options, answer, vocab_id))
+    UPDATE vocabulary SET word = ?, option = ?, answer = ? WHERE id = ?
+    ''', (word, options, answer, vocab_id))
     con.commit()
     con.close()
 
-# delete a vocabulary
+# Delete a vocabulary item
 def delete_vocabulary(vocab_id):
     con = sqlite3.connect('quizapp.db')
     cursor = con.cursor()
-    cursor.execute('DELETE FROM vocabulary WHERE id = ?', (vocab_id))
+    cursor.execute('DELETE FROM vocabulary WHERE id = ?', (vocab_id,))
     con.commit()
     con.close()
+
