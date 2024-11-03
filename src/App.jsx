@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Flashcard from './components/Flashcard';
 import './css/Flashcard.css'; // Assuming your styles are here
 
