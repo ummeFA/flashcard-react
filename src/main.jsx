@@ -1,10 +1,24 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Flashcard from './components/Flashcard';
+import ShowVocabList from './components/ShowVocabList';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+
+const router = createBrowserRouter([{
+  path: '/',
+  element: <Flashcard/>
+},
+{
+  path:'/show-vocab-list',
+  element: <ShowVocabList/>
+}
+]);
+
+// Render the application
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+      <RouterProvider router={router} />
+  
+  </React.StrictMode>
+);

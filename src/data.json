@@ -1,0 +1,45 @@
+{
+    "vocabulary": [
+      {
+        "question": "What is JavaScript?",
+        "answer": "A programming language primarily used for web development."
+      },
+      {
+        "question": "What does HTML stand for?",
+        "answer": "HyperText Markup Language."
+      },
+      {
+        "question": "What is CSS used for?",
+        "answer": "CSS is used for styling HTML elements on a webpage."
+      },
+      {
+        "question": "What is React?",
+        "answer": "A JavaScript library for building user interfaces."
+      },
+      {
+        "question": "What is a variable?",
+        "answer": "A container for storing data values."
+      },
+      {
+        "question": "What is JSX?",
+        "answer": "A syntax extension for JavaScript that allows mixing HTML with JavaScript."
+      },
+      {
+        "question": "What is a function?",
+        "answer": "A block of code designed to perform a particular task."
+      },
+      {
+        "question": "What is an array?",
+        "answer": "A data structure that can hold multiple values at once."
+      },
+      {
+        "question": "What is an object in JavaScript?",
+        "answer": "An entity that stores properties and methods."
+      },
+      {
+        "question": "What is the DOM?",
+        "answer": "The Document Object Model, which represents the structure of a webpage."
+      }
+    ]
+  }
+  
