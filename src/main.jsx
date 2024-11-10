@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Flashcard from './components/Flashcard';
 import ShowVocabList from './components/ShowVocabList';
+// main.jsx or App.jsx
+import './index.css';
 
 
 const router = createBrowserRouter([{

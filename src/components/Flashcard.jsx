@@ -41,16 +41,26 @@ function Flashcard() {
           </div>
           {/* Back Side */}
           <div className="flashcard-back">
-            <h3>Answer</h3>
             <p>{currentQuestion.answer}</p>
           </div>
         </div>
       </div>
       {/* Navigation buttons */}
-      <div className="navigation-buttons">
-        <button className="nav-btn" onClick={previousFlashcard}>Previous</button>
-        <button className="nav-btn" onClick={nextFlashcard}>Next</button>
-      </div>
+      <div className="flex justify-between w-48 mt-5">
+  <button
+    className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600"
+    onClick={() => { setIsFlipped(false); previousFlashcard(); }}
+  >
+    Previous
+  </button>
+  <button
+    className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600"
+    onClick={() => { setIsFlipped(false); nextFlashcard(); }}
+  >
+    Next
+  </button>
+</div>
+
     </div>
   );
 }

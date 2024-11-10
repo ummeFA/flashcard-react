@@ -44,21 +44,23 @@
   }
   
   .flashcard-front {
-    background-color: #f9f9f9;
+    background-color: gray;
   }
   
   .flashcard-back {
     background-color: #4caf50;
+    padding: 10px;
     color: white;
     transform: rotateY(180deg); /* Ensures the back is flipped by default */
   }
 
   
   /* Navigation buttons */
-  .navigation-buttons {
+  /* .navigation-buttons {
     display: flex;
     justify-content: space-between;
     width: 200px;
+    margin-top: 30px;
   }
   
   .nav-btn {
@@ -73,4 +75,4 @@
   .nav-btn:hover {
     background-color: #0056b3;
   }
-  
+   */
