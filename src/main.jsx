@@ -1,26 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Flashcard from './components/Flashcard';
-import ShowVocabList from './components/ShowVocabList';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Flashcard from "./components/Flashcard";
+import ShowVocabList from "./components/ShowVocabList";
 // main.jsx or App.jsx
-import './index.css';
+import "./index.css";
+import Navbar from "./components/Navbar";
 
-
-const router = createBrowserRouter([{
-  path: '/',
-  element: <Flashcard/>
-},
-{
-  path:'/show-vocab-list',
-  element: <ShowVocabList/>
-}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+      <Navbar/>
+      <Flashcard/>
+      </>
+    ),
+  },
+  
+  {
+    path: "/show-vocab-list",
+    element: (
+      <>
+      <Navbar/>
+      <ShowVocabList />
+      </>
+    ),
+  },
 ]);
 
 // Render the application
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-      <RouterProvider router={router} />
-  
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
